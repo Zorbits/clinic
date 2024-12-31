@@ -1,0 +1,32 @@
+sequenceDiagram
+    participant U as User
+    participant UI as Interface
+    participant AI as AI System
+    participant DB as Database
+
+    Note over U,DB: Standard Booking Flow
+    U->>UI: Initiates booking
+    UI->>AI: Request scheduling options
+    AI->>DB: Fetch patient history
+    AI->>DB: Check resource availability
+    AI-->>UI: Return optimized suggestions
+    UI-->>U: Display recommendations
+    
+    Note over U,DB: Conflict Resolution
+    U->>UI: Selects conflicting slot
+    UI->>AI: Request conflict analysis
+    AI->>DB: Analyze impact
+    AI-->>UI: Provide resolution options
+    UI-->>U: Show resolution interface
+    U->>UI: Choose resolution
+    UI->>DB: Update scheduling
+
+    Note over U,DB: Emergency Booking
+    U->>UI: Flag emergency booking
+    UI->>AI: Priority scheduling request
+    AI->>DB: Find immediate slots
+    AI->>DB: Analyze rescheduling options
+    AI-->>UI: Return emergency options
+    UI-->>U: Show impact analysis
+    U->>UI: Confirm emergency slot
+    UI->>DB: Update multiple appointments
