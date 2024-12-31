@@ -1,0 +1,31 @@
+flowchart TD
+    A[New Scheduling Request] --> B{Analyze Patient History}
+    B --> C[Load Patient Preferences]
+    B --> D[Check Attendance Patterns]
+    B --> E[Review Recent Behavior]
+    
+    C --> F[Calculate Optimal Time Slots]
+    D --> F
+    E --> F
+    
+    F --> G{Check Resource Availability}
+    G --> H[Room Availability]
+    G --> I[Provider Availability]
+    G --> J[Equipment Status]
+    
+    H --> K[Score Available Slots]
+    I --> K
+    J --> K
+    
+    K --> L{Apply Business Rules}
+    L --> M[Emergency Priority]
+    L --> N[VIP Status]
+    L --> O[Service Requirements]
+    
+    M --> P[Generate Final Recommendations]
+    N --> P
+    O --> P
+    
+    P --> Q{Present Options}
+    Q --> R[Record Decision]
+    R --> S[Update Learning Data]
